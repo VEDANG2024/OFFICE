@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedang Trivedi - Mid-Term Evaluation Slide</title>
+    <style>
+        :root {
+            --kh-navy: #111E38;
+            --kh-slate: #1E293B;
+            --kh-gold: #EAB308;
+            --bg-canvas: #F8FAFC;
+            --card-bg: #FFFFFF;
+            
+            /* Gen-Z Inspired High-Contrast Palette */
+            --electric-teal: #06B6D4;
+            --cyber-purple: #8B5CF6;
+            --neon-pink: #EC4899;
+            --emerald-green: #10B981;
+            --sunset-orange: #F97316;
+            
+            --text-dark: #0F172A;
+            --text-gray: #475569;
+            --border-light: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #94A3B8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        /* Fixed 16:9 Presentation Canvas Box */
+        .slide-container {
+            width: 1333px;
+            height: 750px;
+            background-color: var(--bg-canvas);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Exact Template Header Structure matching Image 2 */
+        .slide-header {
+            background: linear-gradient(to right, var(--kh-navy) 60%, #1E3A8A);
+            color: #FFFFFF;
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            border-bottom: 3px solid var(--kh-gold);
+        }
+
+        .header-left h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-metadata {
+            text-align: right;
+        }
+
+        .user-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .user-dept {
+            font-size: 12px;
+            color: #93C5FD;
+            font-weight: 500;
+        }
+
+        /* Abstract Vector Logo to Match Right Corner Ring */
+        .logo-placeholder {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 3px solid var(--kh-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--kh-gold);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Primary Grid Layout */
+        .slide-body {
+            display: grid;
+            grid-template-columns: 65% 35%;
+            gap: 12px;
+            padding: 12px;
+            flex-grow: 1;
+            height: calc(100% - 68px);
+        }
+
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Exact Header Formatting matching Image 2 */
+        .main-section-header {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--kh-navy);
+            background-color: #E2E8F0;
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-section-header span.subtitle {
+            font-size: 11px;
+            color: var(--sunset-orange);
+            text-transform: none;
+            font-weight: 600;
+        }
+
+        /* Container Blocks */
+        .content-block-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            flex-grow: 1;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .two-column-inner-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            height: 100%;
+        }
+
+        .sub-column-card {
+            background: #F8FAFC;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sub-card-title {
+            font-size: 11px;
+            font-weight: 800;
+            color: #FFFFFF;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 2px;
+            letter-spacing: 0.3px;
+        }
+        .bg-teal { background-color: var(--electric-teal); }
+        .bg-purple { background-color: var(--cyber-purple); }
+
+        /* KPI Pill Badges */
+        .kpi-row-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--kh-slate);
+            border-bottom: 1px solid #E2E8F0;
+            padding-bottom: 2px;
+            margin-top: 2px;
+        }
+        .tag-pill {
+            background: #E0F2FE;
+            color: #0369A1;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 800;
+        }
+
+        /* Diagram 1: Vertical Process Pipeline (BAU) */
+        .pipeline-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .pipeline-node {
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            padding: 4px 8px;
+            gap: 8px;
+        }
+
+        .node-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--electric-teal);
+            flex-shrink: 0;
+        }
+        .node-indicator.done { background-color: var(--emerald-green); }
+
+        .pipeline-node p {
+            font-size: 10.5px;
+            line-height: 1.3;
+            color: var(--text-dark);
+        }
+        .pipeline-node p strong { color: var(--kh-navy); }
+
+        /* Diagram 2: Learning Badges Mosaic */
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+        }
+
+        .mosaic-tile {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-left: 3px solid var(--cyber-purple);
+            border-radius: 4px;
+            padding: 6px;
+        }
+        .mosaic-tile.mavim { border-left-color: var(--emerald-green); }
+
+        .mosaic-title {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .mosaic-desc {
+            font-size: 9.5px;
+            color: var(--text-gray);
+            line-height: 1.2;
+        }
+
+        /* Diagram 3: Architecture Stack Diagram (Projects) */
+        .stack-blueprint {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: #FFF7ED;
+            border: 1px solid #FFEDD5;
+            padding: 6px;
+            border-radius: 6px;
+        }
+
+        .stack-layer {
+            display: grid;
+            grid-template-columns: 24% 76%;
+            background: #FFFFFF;
+            border: 1px solid #FED7AA;
+            border-radius: 4px;
+            overflow: hidden;
+            font-size: 9.5px;
+        }
+
+        .layer-label {
+            background: #FFEDD5;
+            color: #C2410C;
+            font-weight: 800;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 8.5px;
+        }
+
+        .layer-detail {
+            padding: 4px 6px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        /* Diagram 4: Modern Process Transformation Matrix */
+        .matrix-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+        }
+
+        .matrix-card {
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 9.5px;
+        }
+        .matrix-card.legacy { background-color: #FEF2F2; border: 1px solid #FEE2E2; color: #991B1B;}
+        .matrix-card.future { background-color: #F0FDF4; border: 1px solid #DCFCE7; color: #166534;}
+
+        .matrix-header-text {
+            font-weight: 800;
+            margin-bottom: 3px;
+            font-size: 9.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .matrix-row-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 2px;
+        }
+
+        /* Bottom Section Styles */
+        .bottom-strip-height {
+            height: 185px;
+        }
+
+        .progress-cards-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding: 4px 4px 6px 4px;
+        }
+
+        .progress-step-card {
+            background: #F8FAFC;
+            border-top: 3px solid var(--kh-navy);
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .progress-step-card:nth-child(2) { border-top-color: var(--electric-teal); }
+        .progress-step-card:nth-child(3) { border-top-color: var(--cyber-purple); }
+        .progress-step-card:nth-child(4) { border-top-color: var(--emerald-green); }
+
+        .progress-step-card h4 {
+            font-size: 11px;
+            color: var(--text-dark);
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+
+        .progress-step-card p {
+            font-size: 10px;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        /* Diagram 5: Central Horizontal Integration Pipeline Flow */
+        .horizontal-flowchart {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ECEFF1;
+            margin: 0 4px 4px 4px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            border: 1px solid #CFD8DC;
+        }
+
+        .flowchart-bubble {
+            background: white;
+            color: var(--kh-navy);
+            font-size: 9.5px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid #B0BEC5;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+        .flowchart-bubble.active {
+            background: var(--kh-navy);
+            color: white;
+            border-color: var(--kh-navy);
+        }
+
+        .flowchart-arrow-connector {
+            color: var(--sunset-orange);
+            font-weight: 900;
+            font-size: 11px;
+        }
+
+        /* RIGHT STRATEGIC EVALUATION PANEL */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .right-template-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+        .block-height-purpose { flex-grow: 0.9; }
+        .block-height-strengths { flex-grow: 1.2; }
+        .block-height-aligning { flex-grow: 0.9; }
+
+        .right-content-wrapper {
+            padding: 6px 4px 2px 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        /* Diagram 6: Purpose Interface Logic Chevron */
+        .chevron-list-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .chevron-list-card {
+            background: #F0FDF4;
+            border-left: 4px solid var(--emerald-green);
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 10.5px;
+            line-height: 1.3;
+        }
+        .chevron-list-card.variant {
+            background: #EFF6FF;
+            border-left-color: var(--electric-teal);
+        }
+        .chevron-list-card strong { color: var(--kh-navy); }
+
+        /* Diagram 7: Strengths Grid Layout Matrix */
+        .strengths-dashboard-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .dashboard-strength-row {
+            display: grid;
+            grid-template-columns: 32% 68%;
+            background: #F8FAFC;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dashboard-strength-label {
+            font-weight: 800;
+            font-size: 9.5px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+            background: #F1F5F9;
+            border-right: 1px solid var(--border-light);
+        }
+        .dashboard-strength-row:nth-child(1) .dashboard-strength-label { border-left: 3px solid var(--electric-teal); }
+        .dashboard-strength-row:nth-child(2) .dashboard-strength-label { border-left: 3px solid var(--cyber-purple); }
+        .dashboard-strength-row:nth-child(3) .dashboard-strength-label { border-left: 3px solid var(--neon-pink); }
+        .dashboard-strength-row:nth-child(4) .dashboard-strength-label { border-left: 3px solid var(--sunset-orange); }
+
+        .dashboard-strength-text {
+            padding: 5px 7px;
+            font-size: 9.5px;
+            line-height: 1.25;
+            color: var(--text-gray);
+        }
+
+        /* Diagram 8: Modern Triple Badge Core Alignment Setup */
+        .badge-alignment-trio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .alignment-badge-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            padding: 6px;
+            border-radius: 6px;
+            position: relative;
+        }
+        .alignment-badge-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            border-radius: 3px 3px 0 0;
+        }
+        .alignment-badge-card.agility::before { background: var(--electric-teal); }
+        .alignment-badge-card.focus::before { background: var(--neon-pink); }
+        .alignment-badge-card.excellence::before { background: var(--sunset-orange); }
+
+        .alignment-badge-card strong {
+            display: block;
+            color: var(--text-dark);
+            font-size: 11px;
+            margin-bottom: 2px;
+        }
+
+        .alignment-badge-card p {
+            font-size: 9px;
+            line-height: 1.25;
+            color: var(--text-gray);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        
+        <div class="slide-header">
+            <div class="header-left">
+                <h1>2026 KH GCC Internship Program</h1>
+            </div>
+            <div class="header-right">
+                <div class="user-metadata">
+                    <div class="user-name">Vedang Trivedi</div>
+                    <div class="user-dept">GBS – KHMS Digital Automation & Operational Excellence</div>
+                </div>
+                <div class="logo-placeholder">KH</div>
+            </div>
+        </div>
+
+        <div class="slide-body">
+            
+            <div class="left-panel">
+                
+                <div class="main-section-header">
+                    <span>YOUR IMPACT TO YOUR FUNCTION</span>
+                    <span class="subtitle">KHMS Digital Automation & Operational Excellence</span>
+                </div>
+                
+                <div class="content-block-container">
+                    <div class="two-column-inner-grid">
+                        
+                        <div class="sub-column-card">
+                            <span class="sub-card-title bg-teal">BAU Activities (KPI 1 & 3)</span>
+                            
+                            <div class="kpi-row-header">
+                                <span>HEALTH CHECK TIMELINESS & COVERAGE</span>
+                                <span class="tag-pill">KPI 1</span>
+                            </div>
+                            <div class="pipeline-vertical">
+                                <div class="pipeline-node">
+                                    <div class="node-indicator done"></div>
+                                    <p><strong>Monthly Processing:</strong> Unified multi-tower health check evaluations within tight timelines.</p>
+                                </div>
+                                <div class="pipeline-node">
+                                    <div class="node-indicator done"></div>
+                                    <p><strong>Communication Strings:</strong> Deployed active milestone check reminder arrays directly to stakeholders.</p>
+                                </div>
+                                <div class="pipeline-node">
+                                    <div class="node-indicator"></div>
+                                    <p><strong>Trend Analytics:</strong> Generated run-rate average trackers mapping operational blind spots.</p>
+                                </div>
+                                <div class="pipeline-node">
+                                    <div class="node-indicator"></div>
+                                    <p><strong>Data Alignment:</strong> Synced with visualization engineering leads to calibrate live metrics sheets.</p>
+                                </div>
+                            </div>
+
+                            <div class="kpi-row-header">
+                                <span>LEARNING & OPERATIONAL EXCELLENCE</span>
+                                <span class="tag-pill">KPI 3</span>
+                            </div>
+                            <div class="mosaic-grid">
+                                <div class="mosaic-tile mavim">
+                                    <div class="mosaic-title">🟢 Mavim Core</div>
+                                    <div class="mosaic-desc">Mapped operational STP tree structures to master architecture frameworks.</div>
+                                </div>
+                                <div class="mosaic-tile">
+                                    <div class="mosaic-title">🟪 Power Apps</div>
+                                    <div class="mosaic-desc">Acquired validation for complex canvas environment layouts.</div>
+                                </div>
+                                <div class="mosaic-tile">
+                                    <div class="mosaic-title">🟪 Power BI Track</div>
+                                    <div class="mosaic-desc">Studied relational data schema preparation protocols.</div>
+                                </div>
+                                <div class="mosaic-tile mavim">
+                                    <div class="mosaic-title">🟢 KHMS Context</div>
+                                    <div class="mosaic-desc">Converted multi-tower mock review models directly to active deliverables.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-column-card">
+                            <span class="sub-card-title bg-purple">Projects (KPI 2)</span>
+                            
+                            <div class="kpi-row-header">
+                                <span>SHAREPOINT AUTOMATION & ELIMINATION</span>
+                                <span class="tag-pill">KPI 2</span>
+                            </div>
+                            
+                            <div class="stack-blueprint">
+                                <div class="stack-layer">
+                                    <div class="layer-label">Front-End</div>
+                                    <div class="layer-detail"><strong>GBS HC 2026 Power App:</strong> Wizard navigation schema driving live data entry captures.</div>
+                                </div>
+                                <div class="stack-layer">
+                                    <div class="layer-label">Identity</div>
+                                    <div class="layer-detail"><strong>Microsoft Entra ID:</strong> Active user matching system completely stripping out entry lookups.</div>
+                                </div>
+                                <div class="stack-layer">
+                                    <div class="layer-label">Data Node</div>
+                                    <div class="layer-detail"><strong>SharePoint Lists:</strong> Relational reference tables serving as single production source.</div>
+                                </div>
+                            </div>
+
+                            <div class="kpi-row-header">
+                                <span>PROCESS TRANSFORMATION METRICS</span>
+                                <span class="tag-pill">SYSTEM OPTIMIZATION</span>
+                            </div>
+                            
+                            <div class="matrix-split">
+                                <div class="matrix-card legacy">
+                                    <div class="matrix-header-text">❌ Manual Framework</div>
+                                    <div class="matrix-row-item">▪ Isolated team records</div>
+                                    <div class="matrix-row-item">▪ Manual identity trace</div>
+                                    <div class="matrix-row-item">▪ Ad-hoc tracking errors</div>
+                                </div>
+                                <div class="matrix-card future">
+                                    <div class="matrix-header-text">✅ Automated Horizon</div>
+                                    <div class="matrix-row-item">▪ Central cloud databases</div>
+                                    <div class="matrix-row-item">▪ Live identity parsing</div>
+                                    <div class="matrix-row-item">▪ Integrated data guards</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="main-section-header">
+                    <span>YOUR IMPACT TO YOUR FUNCTIONAL PROJECT – PROGRESS DETAILS</span>
+                </div>
+                
+                <div class="content-block-container bottom-strip-height">
+                    <div class="progress-cards-row">
+                        <div class="progress-step-card">
+                            <h4>1. Problem Statement</h4>
+                            <p>Health check data lived in fragmented sheets, driving structural errors, data extraction friction, and late submission flags.</p>
+                        </div>
+                        <div class="progress-step-card">
+                            <h4>2. What I Built</h4>
+                            <p>Constructed a unified, wizard-based canvas system connected to custom database architectures across 37 unique validation checks.</p>
+                        </div>
+                        <div class="progress-step-card">
+                            <h4>3. How It Works</h4>
+                            <p>Pairs cloud records with instant filters, automatic stage trackers, and functional parameter logic blocks right at entry.</p>
+                        </div>
+                        <div class="progress-step-card">
+                            <h4>4. Impact & Status</h4>
+                            <p>Eliminated broken record generation; paths route live entries straight to reporting channels for executive visibility.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="horizontal-flowchart">
+                        <div class="flowchart-bubble">Operations User</div>
+                        <div class="flowchart-arrow-connector">&gt;&gt;</div>
+                        <div class="flowchart-bubble active">GBS HC 2026 Interface</div>
+                        <div class="flowchart-arrow-connector">&gt;&gt;</div>
+                        <div class="flowchart-bubble">SharePoint Structured Repository</div>
+                        <div class="flowchart-arrow-connector">&gt;&gt;</div>
+                        <div class="flowchart-bubble active">Power BI Automated Datasets</div>
+                        <div class="flowchart-arrow-connector">&gt;&gt;</div>
+                        <div class="flowchart-bubble">Executive Dashboard</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="right-panel">
+                
+                <div class="main-section-header">
+                    <span>PURPOSE: How does your career vision align with your purpose?</span>
+                </div>
+                <div class="right-template-block block-height-purpose">
+                    <div class="right-content-wrapper">
+                        <div class="chevron-list-layout">
+                            <div class="chevron-list-card">
+                                <strong>Core System Strategy:</strong> Linking practical software development disciplines with large-scale operations to generate low-code applications that eliminate manual overhead.
+                            </div>
+                            <div class="chevron-list-card variant">
+                                <strong>The Academic Practicum:</strong> Direct sandbox application where my ICT M.Tech skillset transforms data processing chains into live metrics models.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-section-header">
+                    <span>STRENGTHS: How does your vision leverage your strengths?</span>
+                </div>
+                <div class="right-template-block block-height-strengths">
+                    <div class="right-content-wrapper">
+                        <div class="strengths-dashboard-grid">
+                            <div class="dashboard-strength-row">
+                                <div class="dashboard-strength-label">Engineering Mindset</div>
+                                <div class="dashboard-strength-text">Constructed app infrastructure logic frames entirely from a baseline blank canvas state.</div>
+                            </div>
+                            <div class="dashboard-strength-row">
+                                <div class="dashboard-strength-label">Operational Agility</div>
+                                <div class="dashboard-strength-text">Rapidly balanced and learned unfamiliar system sets (Mavim flows, cloud lookup schemas) inside single sprints.</div>
+                            </div>
+                            <div class="dashboard-strength-row">
+                                <div class="dashboard-strength-label">Systems Synthesis</div>
+                                <div class="dashboard-strength-text">Infused clean database practices into complex legacy operational document structures.</div>
+                            </div>
+                            <div class="dashboard-strength-row">
+                                <div class="dashboard-strength-label">Team Synergy</div>
+                                <div class="dashboard-strength-text">Maintained consistent collaboration loops with cross-functional tracking heads to verify pipeline integrity.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-section-header">
+                    <span>ALIGNING TO KH: How does your vision align with Kraft Heinz.</span>
+                </div>
+                <div class="right-template-block block-height-aligning">
+                    <div class="right-content-wrapper">
+                        <div class="badge-alignment-trio">
+                            <div class="alignment-badge-card agility">
+                                <strong>Agility</strong>
+                                <p>Delivered consistent outputs across new environments, demonstrating an active Growth Mindset.</p>
+                            </div>
+                            <div class="alignment-badge-card focus">
+                                <strong>User Focus</strong>
+                                <p>Optimized UX elements for operations teams to eliminate logging fatigue.</p>
+                            </div>
+                            <div class="alignment-badge-card excellence">
+                                <strong>Op Excellence</strong>
+                                <p>Secured data pathways to enforce corporate governance across 5-Pillar operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
